@@ -1,0 +1,10 @@
+/* body{
+    background-image: url("./Landscape-Color.jpeg");
+    background-size:cover;
+    background-repeat: no-repeat;
+    background-position: center;
+} */
+
+.container img{
+    transform: scale(1.2);
+}

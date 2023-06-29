@@ -1,0 +1,44 @@
+ /* .container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-gap: 20px;
+} */
+/* .box {
+    background-color: #f1f1f1;
+    padding-top: 100%; 
+    position: relative;
+} */
+/* Maintain a 1:1 aspect ratio for the boxes */
+/* .content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 10px;
+    background-color: #f1f1f1;
+    overflow: hidden;
+  } */
+  .container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Adjust the column size as needed */
+    grid-gap: 10px; /* Adjust the gap size as needed */
+  }
+  
+  .box {
+    padding-top: 75%; /* Adjust the aspect ratio as needed */
+    position: relative;
+  }
+  
+  .content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 10px; /* Adjust the padding as needed */
+    background-color: #f1f1f1;
+    overflow: hidden;
+}
+  
+  
