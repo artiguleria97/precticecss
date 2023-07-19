@@ -5,6 +5,7 @@ import { Redirect } from 'react-router-dom';
 import LogsPanel from './LogPanel';
 import CodeBlock from './CodeBlock';
 import MainContainer from './MainContainer';
+import AnimatedContainer from './AnimatedContainer';
 
 
 const HomePage = () => {
@@ -16,6 +17,7 @@ const HomePage = () => {
         Welcome to the Event Planner App!
         <LogsPanel/>
       </Typography>
+      <AnimatedContainer/>
       <CodeBlock/>
       <MainContainer/>
       {/* Add your custom content here */}
