@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* Select every 2nd item */
+li:nth-child(2n) {
+  background-color: lightgray;
+}
+
+/* Select every 3rd item */
+li:nth-child(3n) {
+  background-color: lightblue;
+}
+
+/* Select elements starting from the 3rd position */
+li:nth-child(n+3) {
+  color: red;
+}
+
+/* Select elements starting from the 4th position, with a repeating pattern */
+li:nth-child(3n+4) {
+  color: green;
+}
+
+/* Select elements from the 2nd to the 5th position */
+li:nth-child(n+2):nth-child(-n+5) {
+  font-weight: bold;
+}
+
+/* Select odd items */
+li:nth-child(odd) {
+  text-decoration: underline;
+}
+
+/* Select even items */
+li:nth-child(even) {
+  text-transform: uppercase;
+}
+
+/* Select the first item within the pattern */
+li:nth-child(3n+1) {
+  font-style: italic;
+}
+
+/* Select the last item within the pattern */
+li:nth-child(3n) {
+  border: 1px solid black;
+}
+
+/* Select the middle item within the pattern */
+li:nth-child(3n+2) {
+  background-color: lightgreen;
+}
+
+    </style>
+</head>
+<body>
+    <h1>Nth Child Selector Example</h1>
+  <ul>
+    <li>Item 1</li>
+    <li>Item 2</li>
+    <li>Item 3</li>
+    <li>Item 4</li>
+    <li>Item 5</li>
+    <li>Item 6</li>
+    <li>Item 7</li>
+    <li>Item 8</li>
+    <li>Item 9</li>
+    <li>Item 10</li>
+  </ul>
+</body>
+</html>

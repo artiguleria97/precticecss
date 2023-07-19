@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+.gallery {
+  display: flex;
+  perspective: 1000px; /* Adjust the perspective value for desired depth */
+  overflow: hidden;
+}
+
+.gallery-item {
+  position: relative;
+  flex: 0 0 auto;
+  width: 300px; /* Adjust the width of each image */
+  height: 200px; /* Adjust the height of each image */
+  margin-right: 20px; /* Adjust the spacing between images */
+  transform-style: preserve-3d;
+  transform: translateZ(0);
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.gallery:hover .gallery-item {
+  transform: rotateY(30deg); /* Adjust the rotation angle as needed */
+  transition: transform 0.5s;
+}
+
+.gallery:hover .gallery-item:not(:hover) {
+  opacity: 0.7; /* Adjust the opacity of non-hovered images */
+  transition: opacity 0.5s;
+}
+
+
+    </style>
+</head>
+<body>
+    <div class="gallery">
+        <figure class="gallery-item">
+            <img src="https://cdn.pixabay.com/photo/2015/04/19/08/32/marguerite-729510_1280.jpg" alt="Image 1">
+        </figure>
+        <figure class="gallery-item">
+            <img src="https://cdn.pixabay.com/photo/2018/03/23/09/23/flowers-3253187_640.jpg" alt="Image 2">
+        </figure>
+        <figure class="gallery-item">
+            <img src="https://cdn.pixabay.com/photo/2020/05/26/19/50/flowers-5224550_640.jpg" alt="Image 3">
+        </figure>
+       
+              
+      </div>
+      
+</body>
+</html>

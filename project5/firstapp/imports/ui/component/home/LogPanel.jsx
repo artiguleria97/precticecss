@@ -1,44 +1,25 @@
-import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import Paper from '@material-ui/core/Paper';
-import Typography from '@material-ui/core/Typography';
+import React, { useState } from 'react';
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    width: '100%',
-    height: '400px',
-    overflow: 'auto',
-    padding: theme.spacing(2),
-  },
-  logEntry: {
-    marginBottom: theme.spacing(1),
-    padding: theme.spacing(1),
-    backgroundColor: '#f5f5f5',
-    borderRadius: theme.spacing(1),
-  },
-}));
+const LogsSection = () => {
+  const [logs, setLogs] = useState([]);
 
-function LogsPanel() {
-  const classes = useStyles();
+  const addLog = () => {
+    const newLog = `Log ${logs.length + 1}`;
+    setLogs([...logs, newLog]);
+  };
 
   return (
-    <Paper className={classes.root}>
-      <Typography variant="h6" gutterBottom>
-        Logs Panel
-      </Typography>
-      <div className={classes.logEntry}>
-        <Typography variant="body1">
-          [Timestamp] Log entry 1
-        </Typography>
+    <div className="logs-section">
+      <div className="logs-toolbar">
+        <button onClick={addLog}>Add Log</button>
       </div>
-      <div className={classes.logEntry}>
-        <Typography variant="body1">
-          [Timestamp] Log entry 2
-        </Typography>
+      <div className="logs-container">
+        {logs.map((log, index) => (
+          <div key={index} className="log">{log}</div>
+        ))}
       </div>
-      {/* Add more log entries here */}
-    </Paper>
+    </div>
   );
-}
+};
 
-export default LogsPanel;
+export default LogsSection;

@@ -3,6 +3,8 @@ import { Container, Typography } from '@mui/material';
 import { useCurrentUser } from '../../hooks/useCurrentUser';
 import { Redirect } from 'react-router-dom';
 import LogsPanel from './LogPanel';
+import CodeBlock from './CodeBlock';
+import MainContainer from './MainContainer';
 
 
 const HomePage = () => {
@@ -14,6 +16,8 @@ const HomePage = () => {
         Welcome to the Event Planner App!
         <LogsPanel/>
       </Typography>
+      <CodeBlock/>
+      <MainContainer/>
       {/* Add your custom content here */}
     </Container>
   );
