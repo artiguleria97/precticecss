@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+<script>
+function deepEqual(obj1, obj2) {
+  if (typeof obj1 !== typeof obj2) {
+    return false;
+  }
+
+  if (typeof obj1 !== 'object' || obj1 === null || obj2 === null) {
+    return obj1 === obj2;
+  }
+
+  if (Array.isArray(obj1)) {
+    if (!Array.isArray(obj2) || obj1.length !== obj2.length) {
+      return false;
+    }
+    for (let i = 0; i < obj1.length; i++) {
+      if (!deepEqual(obj1[i], obj2[i])) {
+        return false;
+      }
+    }
+    return true;
+  }
+
+  const keys1 = Object.keys(obj1);
+  const keys2 = Object.keys(obj2);
+
+  if (keys1.length !== keys2.length) {
+    return false;
+  }
+
+  for (const key of keys1) {
+    if (!keys2.includes(key) || !deepEqual(obj1[key], obj2[key])) {
+      return false;
+    }
+  }
+
+  return true;
+}
+
+
+function updateOrCreateData(existingData, newData) {
+  const existingDataIndex = existingData.findIndex((item) => deepEqual(item.message, newData.message));
+  console.log(existingDataIndex)
+  if (existingDataIndex !== -1) {
+    // If the data exists, update it at the specific index
+    const updatedData = [...existingData];
+    updatedData[existingDataIndex] = newData;
+    return updatedData;
+  } else {
+    // If the data is not repeated, add it to the array
+    return [...existingData, newData];
+  }
+}
+
+// Sample data array for testing
+let dataArray = [
+  
+    {
+        
+        "message": {
+            "text": "Ping",
+            "value": ""
+        },
+        "type": "request",
+        "tagName": "div"
+    },
+    {
+        
+        "message": {
+            "text": "OK",
+            "value": ""
+        },
+        "type": "response",
+        "tagName": "div"
+    },
+    {
+        "message": [
+            {
+                "text": "Firmware",
+                "value": "v8.7.11"
+            },
+            {
+                "text": "Model",
+                "value": "LiteBeam 5AC"
+            },
+            {
+                "text": "Connected SSID",
+                "value": "BTS-Test-signal"
+            }
+        ],
+        "type": "response",
+        "tagName": "div"
+    },
+    {
+        
+        "message": "",
+        "type": "request",
+        "tagName": "dropdown"
+    },
+    {
+        
+        "message": {
+            "text": "Getting information from Device",
+            "value": ""
+        },
+        "type": "request",
+        "tagName": "div"
+    },
+    {
+        
+        "message": [
+            {
+                "text": "CPE Name",
+                "value": "dws-test2_140-151_L5C"
+            },
+            {
+                "text": "Input rate",
+                "value": 0
+            },
+            {
+                "text": "Input burst rate",
+                "value": 0
+            },
+            {
+                "text": "Output rate",
+                "value": 0
+            },
+            {
+                "text": "Output burst rate",
+                "value": 0
+            }
+        ],
+        "type": "request",
+        "tagName": "div"
+    }
+
+];
+
+// Sample new data
+const newData1 = {  "message": [
+            {
+                "text": "CPE Name",
+                "value": "dws-test2_140-151_L5C"
+            },
+            {
+                "text": "Input rate",
+                "value": 0
+            },
+            {
+                "text": "Input burst rate",
+                "value": 0
+            },
+            {
+                "text": "Output rate",
+                "value": 0
+            },
+            {
+                "text": "Output burst rate",
+                "value": 0
+            }
+        ],
+        "type": "request",
+        "tagName": "div"};
+
+// Example usage of updateOrCreateData
+dataArray = updateOrCreateData(dataArray, newData1);
+// dataArray = updateOrCreateData(dataArray, newData2);
+
+console.log(dataArray);
+
+function areArraysEqualWithoutCPEName(array1, array2) {
+  if (array1.length !== array2.length) {
+    return false;
+  }
+
+  for (let i = 1; i < array1.length; i++) { // Start from index 1 to skip "CPE Name" field
+    if (array1[i].value !== array2[i].value) { // Compare "value" property of elements at corresponding positions
+      return false;
+    }
+  }
+
+  return true;
+}
+
+// Example usage:
+const array1 = [
+  {
+    "text": "CPE Name",
+    "value": "dws-test2_140-209_L5C"
+  },
+  {
+    "text": "Input rate",
+    "value": 0
+  },
+  {
+    "text": "Input burst rate",
+    "value": 0
+  },
+  {
+    "text": "Output rate",
+    "value": 0
+  },
+  {
+    "text": "Output burst rate",
+    "value": 0
+  }
+];
+
+const array2 = [
+  {
+    "text": "CPE Name",
+    "value": "dws-test2_140-210_L5C"
+  },
+  {
+    "text": "Input rate",
+    "value": 0
+  },
+  {
+    "text": "Input burst rate",
+    "value": 0
+  },
+  {
+    "text": "Output rate",
+    "value": 0
+  },
+  {
+    "text": "Output burst rate",
+    "value": 0
+  }
+];
+
+console.log(areArraysEqualWithoutCPEName(array1, array2)); // Output: true
+
+
+    </script>
+</body>
+</html>
