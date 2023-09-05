@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            text-align: left;
+            padding: 8px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        @media (max-width: 600px) {
+            table, thead, tbody, th, td, tr {
+                display: block;
+            }
+
+            thead tr {
+                position: absolute;
+                top: -9999px;
+                left: -9999px;
+            }
+
+            tr {
+                margin-bottom: 20px;
+                border: 1px solid #ddd;
+            }
+
+            td {
+                /* Behave like a "row" */
+                border: none;
+                border-bottom: 1px solid #ddd;
+                position: relative;
+                padding-left: 50%;
+            }
+
+            td:before {
+                /* Now like a table header */
+                position: absolute;
+                /* Top/left values mimic padding */
+                top: 6px;
+                left: 6px;
+                width: 45%;
+                padding-right: 10px;
+                white-space: nowrap;
+                font-weight: bold;
+            }
+
+            td:nth-of-type(1):before {
+                content: "Name";
+            }
+
+            td:nth-of-type(2):before {
+                content: "Email";
+            }
+
+            td:nth-of-type(3):before {
+                content: "Phone";
+            }
+
+            /* Add more columns as needed */
+        }
+    </style>
+</head>
+<body>
+    <h2>Responsive Multi-Column Table</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <!-- Add more column headings as needed -->
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>John</td>
+                <td>john@example.com</td>
+                <td>123-456-7890</td>
+                <!-- Add more data rows as needed -->
+            </tr>
+            <tr>
+                <td>Jane</td>
+                <td>jane@example.com</td>
+                <td>987-654-3210</td>
+            </tr>
+            <!-- Add more data rows as needed -->
+        </tbody>
+    </table>
+</body>
+</html>
