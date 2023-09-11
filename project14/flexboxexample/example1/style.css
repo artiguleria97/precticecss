@@ -1,0 +1,40 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.flex-container{
+    display : flex ;
+    width: 100%;
+    height: 100vh;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+}
+
+.item{
+    display: flex;
+    flex:1;
+    height: 200px;
+    background-color: black;
+}
+
+@media (max-width: 768px) {
+    .flex-container {
+      flex-wrap: wrap;
+    }
+    .item {
+        flex: 1;
+        min-width: calc(50% - 10px); /* Two items per row with a 10px gap */
+        height: 200px;
+        background-color: black;
+      }
+   
+  }
+
+  @media (max-width: 500px) {
+    .item {
+      min-width: 100%; /* One item per row at 500px and below */
+    }
+  }
