@@ -1,0 +1,112 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Gilroy';
+}
+html, body{
+    width: 100%;
+    height: 100%;
+}
+#main{
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+#left{
+    width: 40%;
+    height: 100%;
+    background-color: white;
+    position: relative;
+}
+#left img{
+ width: 20px;
+ height: 20px;
+}
+
+#lnav{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 20px 30px;
+}
+#lnavr{
+    display: flex;
+    align-items: center;
+}
+#lnavr a{
+    margin-right: 20px;
+    text-decoration: none;
+    color: black;
+    font-weight: 500;
+    font-size: 14px;
+}
+#left #textcenter{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+#textcenter h1{
+    font-size: 90px;
+    font-weight: 900; 
+}
+#textcenter p {
+    opacity: .6;
+    font-size: 12px;
+    line-height: 20px;
+    margin-bottom: 20px;
+}
+#textcenter a{
+    text-decoration: none;
+    color: black;
+    border-bottom: 1px solid #000;
+    font-size: 13px;
+    font-weight: 600;
+    opacity: .6;
+}
+#right{
+     width:60%;
+     height: 100%;
+     background-color: azure;
+}
+#rtop{
+    width: 100%;
+    height: 50%;
+    background-color: blueviolet;
+    display: flex;
+}
+#rbottom{
+    width: 100%;
+    height: 50%;
+    background-image: url('https://i.pinimg.com/736x/c8/d2/a9/c8d2a920a596ed0fa3a3a588194a2449.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+#rtopleft{
+    width: 55%;
+    height: 100%;
+    background-image: url("https://www.eatingwell.com/thmb/hfqHdqLAuVKgZ4GLLyj2aqakchg=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/gettyimages-962272556-oranges-square-7998c83eebeb4dd5bfe4f8ab9f65153f.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+#rtopright{
+    width: 45%;
+    height: 100%;
+    background-image:url('https://www.fast-growing-trees.com/cdn/shop/products/Valencia_Orange_4_FGT_66cdfb5b-93f6-4fef-8ec4-b62ff8a7d71b.jpg?v=1642181628&width=1000');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+@media (max-width: 500px) {
+    #main{
+        flex-direction: column;
+    }
+    #main #left{
+        width: 100%;
+    }
+    #main #right{
+        width: 100%;
+    }
+   
+}
